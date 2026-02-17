@@ -1,0 +1,219 @@
+/* Aero-Core Variable System */
+:root {
+    --bg-primary: #050505;
+    --accent: #00ffcc; /* Electric Aqua */
+    --text-main: #ffffff;
+    --text-dim: rgba(255, 255, 255, 0.5);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --font-mono: 'Space Mono', 'Courier New', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none; /* Hide default for HUD cursor */
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* HUD Cursor */
+#cursor-ring {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease-out, width 0.3s, height 0.3s, background 0.3s;
+    transform: translate(-50%, -50%);
+}
+
+/* Glass Navigation */
+.glass-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(5, 5, 5, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 1000;
+}
+
+.nav-brand {
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.nav-brand span {
+    color: var(--accent);
+}
+
+.nav-controls {
+    display: flex;
+    gap: 30px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+}
+
+.lang-toggle button {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    transition: 0.3s;
+}
+
+.lang-toggle button.active {
+    color: var(--accent);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 0 10%;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+.hero p {
+    color: var(--text-dim);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+/* The Arsenal (Grid) */
+.arsenal-container {
+    padding: 100px 5%;
+    background: linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
+}
+
+.section-label {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: 12px;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+
+.arsenal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 40px;
+    border-radius: 4px;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+}
+
+.status-badge {
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 2px 8px;
+    border-radius: 2px;
+}
+
+.glass-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.glass-card p {
+    color: var(--text-dim);
+    font-size: 14px;
+}
+
+.card-footer {
+    margin-top: 40px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-dim);
+}
+
+/* Buttons */
+.btn-primary {
+    background: none;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 15px 35px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--accent);
+    color: var(--bg-primary);
+}
+
+/* Footer Telemetry */
+.telemetry-footer {
+    padding: 40px 5%;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--glass-border);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-dim);
+}
+
+.pulse-dot {
+    height: 8px;
+    width: 8px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}

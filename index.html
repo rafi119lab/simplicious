@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simplicious // High-Velocity Web Architecture</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="cursor-ring"></div>
+
+    <nav class="glass-nav">
+        <div class="nav-brand">SIMPLICIOUS<span>.DEV</span></div>
+        <div class="nav-controls">
+            <div class="lang-toggle">
+                <button class="active">EN</button> | <button>ES</button> | <button>AR</button>
+            </div>
+            <div class="system-status">
+                <span class="pulse-dot"></span> SYS: OPERATIONAL
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="telemetry-bg"></div>
+        <div class="hero-content">
+            <h1 class="glitch-text">Digital Systems for the Front-Line.</h1>
+            <p>Replacing legacy web bloat with high-velocity architecture.</p>
+            <div class="hero-cta">
+                <button class="btn-primary" onmouseover="growCursor()" onmouseleave="shrinkCursor()">Initiate Protocol</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="arsenal-container">
+        <div class="section-label">THE ARSENAL // PROJECT ARCHIVE</div>
+        <div class="arsenal-grid">
+            
+            <div class="glass-card" onmouseover="growCursor()" onmouseleave="shrinkCursor()">
+                <div class="card-header">
+                    <span class="project-id">ID: 001</span>
+                    <span class="status-badge">UNDER CONSTRUCTION</span>
+                </div>
+                <h3>THE LANDSCAPER</h3>
+                <p>Minimalist ecosystem for exterior architecture.</p>
+                <div class="card-footer">v1.0.4 - BETA</div>
+            </div>
+
+            <div class="glass-card" onmouseover="growCursor()" onmouseleave="shrinkCursor()">
+                <div class="card-header">
+                    <span class="project-id">ID: 002</span>
+                    <span class="status-badge">UNDER CONSTRUCTION</span>
+                </div>
+                <h3>THE BARBER</h3>
+                <p>High-performance booking & aesthetic showcase.</p>
+                <div class="card-footer">v0.9.2 - ALPHA</div>
+            </div>
+
+            <div class="glass-card" onmouseover="growCursor()" onmouseleave="shrinkCursor()">
+                <div class="card-header">
+                    <span class="project-id">ID: 003</span>
+                    <span class="status-badge">UNDER CONSTRUCTION</span>
+                </div>
+                <h3>THE LOGISTICS</h3>
+                <p>Global routing telemetry for freight networks.</p>
+                <div class="card-footer">v2.1.0 - STAGING</div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="telemetry-footer">
+        <div class="footer-data">COORD: 40.7128° N, 74.0060° W</div>
+        <div class="footer-data">©2024 SIMPLICIOUS.DEV // NO_BLOAT_POLICY</div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
