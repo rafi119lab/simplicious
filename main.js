@@ -1,24 +1,5 @@
-let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
-const cursor = document.getElementById('cursor-ring');
-
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
-
-function animateCursor() {
-    if (!cursor) return;
-    let distX = mouseX - cursorX;
-    let distY = mouseY - cursorY;
-    cursorX = cursorX + (distX * 0.15);
-    cursorY = cursorY + (distY * 0.15);
-    cursor.style.left = cursorX + 'px';
-    cursor.style.top = cursorY + 'px';
-    requestAnimationFrame(animateCursor);
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-    if (cursor) animateCursor();
+    console.log("SIMPLICIOUS // SYSTEM OPERATIONAL");
 
     // 1. Reveal on Scroll
     const observer = new IntersectionObserver((entries) => {
@@ -30,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.glass-card, .hero-content, .glass-form').forEach(el => {
+    document.querySelectorAll('.glass-card, .hero-content, .glass-form, .portfolio-header').forEach(el => {
         el.style.opacity = "0";
         el.style.transform = "translateY(30px)";
         el.style.transition = "all 0.8s ease-out";
