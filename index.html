@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simplicious // High-Velocity Web Architecture</title>
+    <title>Simplicious // High-Performance Web Infrastructure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div id="cursor-ring"></div>
 
     <nav class="glass-nav">
         <div class="nav-brand">SIMPLICIOUS<span>.DEV</span></div>
@@ -16,63 +15,66 @@
             <div class="lang-toggle">
                 <button class="active">EN</button> | <button>ES</button> | <button>AR</button>
             </div>
-            <div class="system-status">
-                <span class="pulse-dot"></span> SYS: OPERATIONAL
-            </div>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="telemetry-bg"></div>
-        <div class="hero-content">
-            <h1 class="glitch-text">Digital Systems for the Front-Line.</h1>
-            <p>Replacing legacy web bloat with high-velocity architecture.</p>
-            <div class="hero-cta">
-                <button class="btn-primary" onmouseover="growCursor()" onmouseleave="shrinkCursor()">Initiate Protocol</button>
-            </div>
-        </div>
-    </header>
-
-    <section class="arsenal-container">
-        <div class="section-label">THE ARSENAL // PROJECT ARCHIVE</div>
-        <div class="arsenal-grid">
-            
-            <div class="glass-card" onmouseover="growCursor()" onmouseleave="shrinkCursor()">
-                <div class="card-header">
-                    <span class="project-id">ID: 001</span>
-                    <span class="status-badge">UNDER CONSTRUCTION</span>
+    <main>
+        <header class="hero">
+            <div class="hero-content">
+                <h1>High-Performance <br>Web Infrastructure.</h1>
+                <p class="hero-subtitle">We build ultra-fast, single-page systems for businesses that value precision over bloat.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn-primary">Request Your Site</a>
                 </div>
-                <h3>THE LANDSCAPER</h3>
-                <p>Minimalist ecosystem for exterior architecture.</p>
-                <div class="card-footer">v1.0.4 - BETA</div>
             </div>
+        </header>
 
-            <div class="glass-card" onmouseover="growCursor()" onmouseleave="shrinkCursor()">
-                <div class="card-header">
-                    <span class="project-id">ID: 002</span>
-                    <span class="status-badge">UNDER CONSTRUCTION</span>
+        <section class="arsenal-container">
+            <div class="section-label">PORTFOLIO // SELECTED WORKS</div>
+            <div class="arsenal-grid">
+                <div class="glass-card">
+                    <span class="status-badge">Under Construction</span>
+                    <h3>THE LANDSCAPER</h3>
+                    <p>A minimalist showcase for exterior architecture and design.</p>
                 </div>
-                <h3>THE BARBER</h3>
-                <p>High-performance booking & aesthetic showcase.</p>
-                <div class="card-footer">v0.9.2 - ALPHA</div>
-            </div>
-
-            <div class="glass-card" onmouseover="growCursor()" onmouseleave="shrinkCursor()">
-                <div class="card-header">
-                    <span class="project-id">ID: 003</span>
-                    <span class="status-badge">UNDER CONSTRUCTION</span>
+                <div class="glass-card">
+                    <span class="status-badge">Under Construction</span>
+                    <h3>THE BARBER</h3>
+                    <p>High-speed booking system and aesthetic brand gallery.</p>
                 </div>
-                <h3>THE LOGISTICS</h3>
-                <p>Global routing telemetry for freight networks.</p>
-                <div class="card-footer">v2.1.0 - STAGING</div>
+                <div class="glass-card">
+                    <span class="status-badge">Under Construction</span>
+                    <h3>THE LOGISTICS</h3>
+                    <p>Streamlined interface for freight management and routing.</p>
+                </div>
             </div>
+        </section>
 
-        </div>
-    </section>
+        <section id="contact" class="contact-container">
+            <div class="section-label">CONTACT // INTAKE_PROTOCOL</div>
+            <div class="contact-wrapper">
+                <form action="https://formspree.io/f/rafsandipto2006@gmail.com" method="POST" class="glass-form">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="_replyto" required placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Project Details</label>
+                        <textarea name="message" required placeholder="Briefly describe your project requirements..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">Send Request</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
     <footer class="telemetry-footer">
-        <div class="footer-data">COORD: 40.7128° N, 74.0060° W</div>
-        <div class="footer-data">©2024 SIMPLICIOUS.DEV // NO_BLOAT_POLICY</div>
+        <div class="footer-data">©2026 SIMPLICIOUS.DEV</div>
+        <div class="footer-data">SYSTEM STATUS: OPERATIONAL</div>
     </footer>
 
     <script src="main.js"></script>
