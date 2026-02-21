@@ -57,6 +57,16 @@ body {
     letter-spacing: -2px;
     margin-bottom: 60px;
     text-transform: uppercase;
+    
+    /* White secondary layer + Neon Glow */
+    text-shadow: 
+        -1px -1px 0 #fff,  
+         1px -1px 0 #fff,
+        -1px  1px 0 #fff,
+         1px  1px 0 #fff,             /* These create the white "outer layer" */
+         0 0 10px #fff,               /* Soft white inner glow */
+         0 0 20px var(--accent-pink), /* Strong pink glow */
+         0 0 40px var(--accent-pink); /* Wide spread pink glow */
 }
 
 .arsenal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
@@ -91,3 +101,4 @@ body {
 .full-width { width: 100%; }
 
 .telemetry-footer { padding: 40px 5%; display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 10px; opacity: 0.5; border-top: 1px solid var(--glass-border); }
+
