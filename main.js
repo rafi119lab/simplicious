@@ -60,3 +60,41 @@ function runAudit() {
         `;
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("SIMPLICIOUS // SYSTEM OPERATIONAL");
+
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    }, observerOptions);
+
+    // Targets everything that needs a reveal
+    document.querySelectorAll('.glass-card, .hero-content, .glass-form, .section-header-bleak, .portfolio-header, .contact-header').forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "all 0.8s ease-out";
+        observer.observe(el);
+    });
+});
+
+function runAudit() {
+    const traffic = parseFloat(document.getElementById('traffic').value) || 0;
+    const saleValue = parseFloat(document.getElementById('saleValue').value) || 0;
+    const currentConv = (parseFloat(document.getElementById('convRate').value) || 0) / 100;
+    const targetConv = 0.03; 
+    
+    const monthlyLeak = (traffic * targetConv * saleValue) - (traffic * currentConv * saleValue);
+    const annualLeak = monthlyLeak * 12;
+
+    const resultDiv = document.getElementById('auditResult');
+    resultDiv.innerHTML = `
+        <div style="color: #ff007f; font-weight: 900; font-size: 2.8rem;">$${Math.floor(annualLeak).toLocaleString()}</div>
+        <div style="font-family: 'Space Mono'; font-size: 0.8rem; color: #fff;">ANNUAL REVENUE LEAK</div>
+    `;
+}
