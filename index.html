@@ -5,19 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="logo.png">
     <title>Simplicious | High-Performance Web Infrastructure</title>
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://simplicious.dev/">
-    <meta property="og:title" content="Simplicious | Pure Performance. Zero Waste.">
-    <meta property="og:description" content="Stop losing leads to lag. We build zero-bloat, high-performance systems for founders who play for high stakes.">
-    <meta property="og:image" content="https://simplicious.dev/preview.png">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://simplicious.dev/">
-    <meta property="twitter:title" content="Simplicious // Websites That Actually Load.">
-    <meta property="twitter:description" content="Custom web infrastructure. No tracking. No bloat. Pure precision.">
-    <meta property="twitter:image" content="https://simplicious.dev/preview.png">
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -37,48 +24,57 @@
             </div>
         </header>
 
+        <section class="roi-outer-container">
+            <div class="sultan-glass">
+                <div class="glow-orb orb-1"></div>
+                <div class="glow-orb orb-2"></div>
+
+                <div class="audit-header">
+                    <h2 class="audit-title">REVENUE AUDIT</h2>
+                    <p class="audit-subtitle">// SYSTEM DIAGNOSTIC: LEAK DETECTION</p>
+                </div>
+
+                <div class="audit-main-grid">
+                    <div class="panel input-panel">
+                        <h3 class="panel-label">DATA INPUT</h3>
+                        <div class="input-field">
+                            <label>MONTHLY VISITORS</label>
+                            <input type="number" id="traffic" placeholder="2000">
+                        </div>
+                        <div class="input-field">
+                            <label>AVG. SALE VALUE ($)</label>
+                            <input type="number" id="saleValue" placeholder="500">
+                        </div>
+                        <div class="input-field">
+                            <label>CURRENT CONV. RATE (%)</label>
+                            <input type="number" id="convRate" placeholder="1.0">
+                        </div>
+                        <button onclick="runAudit()" class="scan-btn">INITIATE SCAN</button>
+                    </div>
+
+                    <div id="auditResult" class="panel result-panel">
+                        <div class="status-msg">STANDING BY...</div>
+                        <div class="instruction">Enter data to see <br><span>RECOVERABLE REVENUE</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="arsenal-container">
-            <section class="roi-container glass-card" style="margin: 40px 20px; padding: 60px 20px; text-align: center;">
-    <div class="section-label" style="color: var(--accent-pink); margin-bottom: 20px;">DIAGNOSTIC</div>
-    <h2 style="font-family: 'Inter', sans-serif; font-weight: 900; font-size: 2.5rem; margin-bottom: 10px;">REVENUE LEAK AUDITOR</h2>
-    <p style="font-family: 'Space Mono', monospace; opacity: 0.7; margin-bottom: 40px;">CALCULATE THE COST OF YOUR CURRENT PERFORMANCE BOTTLENECKS.</p>
-
-    <div class="audit-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
-        <div class="form-group">
-            <label style="display: block; text-align: left; font-family: 'Space Mono'; font-size: 0.7rem; margin-bottom: 10px;">MONTHLY TRAFFIC</label>
-            <input type="number" id="traffic" placeholder="5000" style="width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white;">
-        </div>
-        <div class="form-group">
-            <label style="display: block; text-align: left; font-family: 'Space Mono'; font-size: 0.7rem; margin-bottom: 10px;">AVG TICKET VALUE ($)</label>
-            <input type="number" id="saleValue" placeholder="1000" style="width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white;">
-        </div>
-        <div class="form-group">
-            <label style="display: block; text-align: left; font-family: 'Space Mono'; font-size: 0.7rem; margin-bottom: 10px;">CURRENT CONV. RATE (%)</label>
-            <input type="number" id="convRate" placeholder="1.0" style="width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white;">
-        </div>
-    </div>
-
-    <button onclick="runAudit()" class="btn-primary" style="margin-top: 40px; cursor: pointer;">RUN ANALYSIS</button>
-
-    <div id="auditResult" style="margin-top: 40px; font-family: 'Inter'; font-weight: 900; font-size: 1.8rem;">
-        </div>
-</section>
             <h2 class="portfolio-header">PORTFOLIO</h2>
             <div class="arsenal-grid">
                 <div class="glass-card">
-                    <img src="https://t3.ftcdn.net/jpg/04/27/47/64/360_F_427476485_oTb1JxGzFAc5MnVb6KoCoZYTgCNm6fSk.jpg" alt="Luxury Landscaping" class="card-img">
+                    <img src="https://t3.ftcdn.net/jpg/04/27/47/64/360_F_427476485_oTb1JxGzFAc5MnVb6KoCoZYTgCNm6fSk.jpg" alt="Landscaping" class="card-img">
                     <span class="status-badge">Demo Site</span>
                     <h3>THE LANDSCAPER</h3>
                     <p>Minimalist showcase for exterior architecture and luxury design.</p>
                 </div>
-
                 <div class="glass-card">
                     <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80" alt="Barber" class="card-img">
                     <span class="status-badge">Demo Site</span>
                     <h3>THE BARBER</h3>
                     <p>Sleek booking interface and aesthetic brand gallery.</p>
                 </div>
-
                 <div class="glass-card">
                     <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=600&q=80" alt="Plumber" class="card-img">
                     <span class="status-badge">Demo Site</span>
@@ -111,16 +107,11 @@
     </main>
 
     <footer style="display: flex; justify-content: space-between; align-items: center; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.1); font-family: 'Space Mono', monospace; font-size: 0.8rem; color: white;">
-        <div style="flex: 1; text-align: left;">©2026 SIMPLICIOUS.DEV</div>
-        <div style="flex: 1; text-align: center; opacity: 0.5; font-size: 0.7rem; letter-spacing: 1px;">
-            PRIVACY: NO TRACKING. NO BLOAT.
-        </div>
-        <div style="flex: 1; text-align: right;">CONNECTICUT // GLOBAL</div>
+        <div>©2026 SIMPLICIOUS.DEV</div>
+        <div style="opacity: 0.5; font-size: 0.7rem;">PRIVACY: NO TRACKING. NO BLOAT.</div>
+        <div>CONNECTICUT // GLOBAL</div>
     </footer>
 
     <script src="main.js"></script>
 </body>
 </html>
-
-
-
