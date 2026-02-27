@@ -28,3 +28,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function runAudit() {
+    // 1. Grab inputs
+    const traffic = parseFloat(document.getElementById('traffic').value) || 0;
+    const saleValue = parseFloat(document.getElementById('saleValue').value) || 0;
+    const currentConv = (parseFloat(document.getElementById('convRate').value) || 0) / 100;
+    
+    // 2. Benchmarking (High-Performance standard is 3%)
+    const targetConv = 0.03; 
+    
+    // 3. Calculation
+    const currentMonthlyRev = traffic * currentConv * saleValue;
+    const targetMonthlyRev = traffic * targetConv * saleValue;
+    const monthlyLeak = targetMonthlyRev - currentMonthlyRev;
+    const annualLeak = monthlyLeak * 12;
+
+    // 4. Inject Results
+    const resultDiv = document.getElementById('auditResult');
+    
+    if (annualLeak <= 0 && traffic > 0) {
+        resultDiv.innerHTML = `
+            <div style="color: #00ff88; font-weight: 900; font-size: 2rem;">OPTIMIZED</div>
+            <div style="font-family: 'Space Mono'; font-size: 0.7rem; opacity: 0.7; margin-top:10px;">YOUR CURRENT INFRASTRUCTURE MEETS BENCHMARKS.</div>
+        `;
+    } else {
+        resultDiv.innerHTML = `
+            <div style="color: #ff007f; font-weight: 900; font-size: 2.8rem;">$${Math.floor(annualLeak).toLocaleString()}</div>
+            <div style="font-family: 'Space Mono'; font-size: 0.8rem; letter-spacing: 1px; color: #fff; margin-top:10px;">ANNUAL REVENUE LEAK</div>
+            <div style="font-size: 0.7rem; opacity: 0.5; margin-top: 15px; max-width: 250px;">Based on a high-performance conversion benchmark of 3%.</div>
+        `;
+    }
+}
