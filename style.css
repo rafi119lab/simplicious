@@ -6,7 +6,7 @@
     --glass-border: rgba(255, 0, 127, 0.3);
 }
 
-/* --- THE FIX: GLOBAL CENTERING --- */
+/* --- RESET & FIXED CENTERING --- */
 * { 
     margin: 0; 
     padding: 0; 
@@ -23,53 +23,55 @@ body {
     width: 100%;
 }
 
-/* --- SECTION WRAPPERS --- */
+/* --- NAVIGATION REPAIR --- */
+.glass-nav {
+    position: fixed; top: 0; left: 0; width: 100%; padding: 20px 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(26, 11, 46, 0.98);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border); 
+    z-index: 9999;
+}
+.nav-brand { font-weight: 900; color: var(--accent-pink); text-decoration: none; font-size: 1.2rem; }
+
+/* --- SECTION ARCHITECTURE --- */
 section {
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Horizontally center children */
-    justify-content: center; /* Vertically center children */
-    padding: 100px 5%;
+    align-items: center; /* Horizontally center everything */
+    justify-content: center; /* Vertically center everything */
+    padding: 120px 5% 80px 5%; /* Space for fixed nav */
     text-align: center;
 }
 
-/* --- NAVIGATION --- */
-.glass-nav {
-    position: fixed; top: 0; left: 0; width: 100%; padding: 20px 5%;
-    display: flex; justify-content: space-between; align-items: center;
-    background: rgba(26, 11, 46, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--glass-border); z-index: 1000;
-}
-.nav-brand { font-weight: 900; color: var(--accent-pink); text-decoration: none; }
-
-/* --- HERO SECTION REPAIR --- */
+/* --- HERO REBUILD --- */
 .hero {
     background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-purple) 100%);
-    padding-top: 80px; /* Offset for fixed nav */
 }
 
 .hero-content {
-    max-width: 900px;
+    width: 100%;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 .hero h1 { 
     color: var(--accent-pink); 
-    font-size: clamp(2.5rem, 8vw, 5rem); 
+    font-size: clamp(2.5rem, 8vw, 5.5rem); 
     font-weight: 900; 
-    line-height: 1.1; 
-    margin-bottom: 20px; 
+    line-height: 1; 
+    margin-bottom: 25px; 
 }
 
 .hero-tagline { 
-    font-weight: 900; 
+    font-weight: 700; 
     color: #fff; 
-    font-size: 1.1rem; 
+    font-size: 1.2rem; 
     letter-spacing: 1px; 
-    margin-bottom: 40px; 
+    margin-bottom: 45px;
+    text-transform: uppercase;
 }
 
 /* --- BUTTONS --- */
@@ -77,17 +79,18 @@ section {
     display: inline-block; 
     background: linear-gradient(90deg, var(--accent-pink), #ff5e62);
     color: white; 
-    padding: 20px 50px; 
+    padding: 22px 55px; 
     text-decoration: none; 
     font-weight: 900;
     text-transform: uppercase; 
     letter-spacing: 2px; 
-    border-radius: 8px; 
-    transition: 0.4s;
+    border-radius: 12px; 
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: none;
-    box-shadow: 0 10px 20px rgba(255, 0, 127, 0.2);
+    box-shadow: 0 10px 30px rgba(255, 0, 127, 0.3);
+    cursor: pointer;
 }
-.btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--accent-pink); }
+.btn-primary:hover { transform: scale(1.05) translateY(-5px); box-shadow: 0 0 40px var(--accent-pink); }
 
 /* --- ROI CALCULATOR REPAIR --- */
 .roi-outer-container { 
@@ -96,68 +99,91 @@ section {
 }
 
 .sultan-glass {
-    background: rgba(255, 255, 255, 0.02); 
+    background: rgba(255, 255, 255, 0.03) !important; 
     border: 1px solid var(--glass-border);
-    border-radius: 30px; 
+    border-radius: 40px; 
     padding: 60px 40px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 .audit-main-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 40px; 
-    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 50px; 
+    align-items: center;
 }
 
 .panel {
     text-align: left;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 30px;
-    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    border-radius: 25px;
     border: 1px solid var(--glass-border);
 }
 
-/* --- FORM TEXT FIX --- */
-label { color: #ffffff !important; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 8px; display: block; }
-input, textarea { 
-    width: 100%; padding: 15px; 
-    background: rgba(0,0,0,0.5) !important; 
-    border: 1px solid var(--glass-border) !important; 
-    color: white !important; border-radius: 10px; margin-bottom: 20px;
+/* WHITE TEXT FOR FORM LABELS */
+label { 
+    color: #ffffff !important; 
+    font-weight: 800; 
+    font-size: 0.8rem; 
+    text-transform: uppercase; 
+    margin-bottom: 12px; 
+    display: block; 
 }
 
-/* --- PORTFOLIO (Fixed 3-Column Grid) --- */
+input, textarea { 
+    width: 100%; 
+    padding: 18px; 
+    background: rgba(255, 255, 255, 0.05) !important; 
+    border: 1px solid var(--glass-border) !important; 
+    color: white !important; 
+    border-radius: 12px; 
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+/* --- PORTFOLIO (Centered 3-Column Grid) --- */
 .arsenal-grid { 
     display: grid; 
     grid-template-columns: repeat(3, 1fr); 
     gap: 30px; 
     width: 100%;
-    margin-top: 50px;
+    max-width: 1200px;
+    margin-top: 60px;
 }
 
-@media (max-width: 1024px) { .arsenal-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1100px) { .arsenal-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .arsenal-grid { grid-template-columns: 1fr; } }
 
 .glass-card { 
     background: rgba(255, 255, 255, 0.03); 
     border: 1px solid var(--glass-border); 
-    padding: 25px; 
-    border-radius: 20px; 
-    transition: 0.4s;
+    padding: 30px; 
+    border-radius: 25px; 
+    transition: 0.5s ease;
+    text-align: left;
 }
 
 .glass-card:hover { 
     border-color: var(--accent-pink); 
-    transform: translateY(-10px); 
-    box-shadow: 0 15px 40px rgba(255, 0, 127, 0.3); 
+    transform: translateY(-15px); 
+    box-shadow: 0 20px 50px rgba(255, 0, 127, 0.4); /* NEON GLOW BACK */
+}
+
+.card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
 }
 
 /* --- CONTACT FORM --- */
 .glass-form { 
-    max-width: 600px; 
+    max-width: 650px; 
     width: 100%; 
     background: rgba(255, 255, 255, 0.03); 
-    padding: 50px; 
+    padding: 60px; 
     border-radius: 30px; 
     border: 1px solid var(--glass-border);
     text-align: left;
