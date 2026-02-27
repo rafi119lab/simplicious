@@ -102,3 +102,140 @@ body {
 
 .telemetry-footer { padding: 40px 5%; display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 10px; opacity: 0.5; border-top: 1px solid var(--glass-border); }
 
+
+/* --- REVENUE AUDIT STYLING --- */
+
+:root {
+    --accent-purple: #7000ff;
+    --accent-pink: #ff007f;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+}
+
+.roi-outer-container {
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 20px;
+}
+
+.sultan-glass {
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* The Glowing Background Orbs */
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+}
+.orb-1 { width: 300px; height: 300px; background: rgba(112, 0, 255, 0.15); top: -100px; right: -50px; }
+.orb-2 { width: 250px; height: 250px; background: rgba(255, 0, 127, 0.1); bottom: -80px; left: -50px; }
+
+/* Dashboard Panels */
+.panel {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.input-panel {
+    border-left: 4px solid var(--accent-purple);
+}
+
+.result-panel {
+    border: 1px solid rgba(255, 0, 127, 0.3);
+    background: radial-gradient(circle at top right, rgba(255, 0, 127, 0.05), transparent);
+}
+
+/* Input Fields */
+.input-field input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    color: #fff;
+    border-radius: 12px;
+    font-family: 'Space Mono', monospace;
+    margin-top: 5px;
+    transition: border 0.3s ease;
+}
+
+.input-field input:focus {
+    outline: none;
+    border-color: var(--accent-purple);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Button Mogging */
+.scan-btn {
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink));
+    box-shadow: 0 4px 15px rgba(112, 0, 255, 0.3);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.scan-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 0, 127, 0.4);
+}
+
+/* Add this to your existing Revenue Audit section */
+.audit-main-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.audit-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.audit-title {
+    font-weight: 900;
+    font-size: 3rem;
+    margin-bottom: 0;
+    color: var(--text-white);
+}
+
+.audit-subtitle {
+    font-family: 'Space Mono', monospace;
+    color: var(--accent-pink);
+    letter-spacing: 2px;
+}
+
+.panel-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    opacity: 0.5;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-field {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-field label {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    margin-bottom: 8px;
+    color: var(--text-dim);
+}
