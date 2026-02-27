@@ -5,7 +5,7 @@
     --text-white: #ffffff;
     --text-dim: rgba(255, 255, 255, 0.6);
     --glass-border: rgba(255, 0, 127, 0.3);
-    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-bg: rgba(255, 255, 255, 0.05);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; cursor: auto !important; }
@@ -41,8 +41,9 @@ body {
     letter-spacing: 1px; margin: 30px auto; max-width: 700px; line-height: 1.4;
 }
 
+/* --- BUTTONS --- */
 .btn-primary {
-    margin-top: 30px; display: inline-block; background: var(--accent-pink); color: white;
+    display: inline-block; background: var(--accent-pink); color: white;
     padding: 20px 50px; text-decoration: none; font-weight: 900;
     text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; transition: 0.4s;
     border: none; cursor: pointer;
@@ -50,7 +51,7 @@ body {
 
 .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--accent-pink); }
 
-/* --- ROI CALCULATOR --- */
+/* --- ROI CALCULATOR (Refined) --- */
 .roi-outer-container {
     max-width: 1100px;
     margin: 80px auto;
@@ -58,26 +59,23 @@ body {
 }
 
 .sultan-glass {
-    background: #000000;
-    border: 2px solid var(--accent-pink); /* Uniform pink border all around */
-    border-radius: 20px;
+    background: var(--bg-purple); /* Unified Purple Background */
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
     padding: 60px 40px;
     position: relative;
-    box-shadow: 0 0 40px rgba(255, 0, 127, 0.15);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
 }
 
 .audit-title {
-    font-weight: 900;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: var(--text-white);
-    text-transform: uppercase;
+    font-weight: 900; font-size: 2.5rem; margin-bottom: 40px; text-transform: uppercase;
 }
 
 .audit-main-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    gap: 50px;
+    align-items: center;
 }
 
 .panel {
@@ -85,65 +83,41 @@ body {
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
-.input-field {
-    margin-bottom: 25px;
-    text-align: left;
-}
-
-.input-field label {
-    display: block;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
-    margin-bottom: 8px;
-    color: var(--text-dim);
-}
-
-.input-field input {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--glass-border);
-    padding: 15px;
-    color: #fff;
-    border-radius: 8px;
-    font-family: 'Space Mono', monospace;
-}
-
-.scan-btn {
-    width: 100%;
-    padding: 20px;
-    background: var(--accent-pink);
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-weight: 900;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: 0.3s all;
-}
-
-.scan-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(255, 0, 127, 0.3);
-}
-
+/* Result Area - Box removed, text floats */
 #auditResult {
-    min-height: 300px;
-    text-align: center;
+    background: transparent;
+    border: none;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-/* --- PORTFOLIO & CONTACT (KEEPING YOUR STYLES) --- */
+.input-field { margin-bottom: 25px; text-align: left; }
+
+.input-field label {
+    display: block; font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    margin-bottom: 8px; color: var(--accent-pink); letter-spacing: 1px;
+}
+
+.input-field input, .glass-form input, .glass-form textarea {
+    width: 100%; padding: 18px; background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px;
+    color: #fff; font-family: 'Inter', sans-serif; transition: 0.3s;
+}
+
+.input-field input:focus, .glass-form input:focus, .glass-form textarea:focus {
+    outline: none; border-color: var(--accent-pink); background: rgba(0, 0, 0, 0.5);
+}
+
+/* --- PORTFOLIO --- */
 .arsenal-container { padding: 120px 5%; background-color: var(--bg-purple); }
 .portfolio-header {
     font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; color: var(--accent-pink);
     letter-spacing: -2px; margin-bottom: 60px; text-transform: uppercase;
-    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 0 20px var(--accent-pink);
+    text-shadow: 0 0 20px var(--accent-pink);
 }
 .arsenal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
 .glass-card { 
@@ -151,7 +125,27 @@ body {
     border: 1px solid var(--glass-border); padding: 25px; border-radius: 12px; transition: 0.4s ease; text-align: left;
 }
 .glass-card:hover { transform: translateY(-10px); border-color: var(--accent-pink); }
-.card-img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; background-color: #111; }
-.contact-container { padding: 100px 5%; background-color: var(--bg-purple); }
-.glass-form { background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); padding: 40px; border-radius: 12px; }
-.telemetry-footer { padding: 40px 5%; display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 10px; opacity: 0.5; border-top: 1px solid var(--glass-border); }
+.card-img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; }
+
+/* --- CONTACT FORM (Modernized) --- */
+.contact-container { padding: 120px 5%; background-color: var(--bg-primary); }
+.glass-form {
+    background: var(--bg-purple);
+    border: 1px solid var(--glass-border);
+    padding: 60px;
+    border-radius: 24px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.form-group { margin-bottom: 25px; text-align: left; }
+.form-group label {
+    display: block; font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    margin-bottom: 8px; color: var(--accent-pink);
+}
+.full-width { width: 100%; margin-top: 20px; }
+
+.telemetry-footer { 
+    padding: 40px 5%; display: flex; justify-content: space-between; 
+    font-family: 'Space Mono', monospace; font-size: 10px; opacity: 0.5; 
+    border-top: 1px solid var(--glass-border); 
+}
