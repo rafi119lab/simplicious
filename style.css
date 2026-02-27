@@ -15,15 +15,15 @@
 }
 
 body {
-    background-color: var(--bg-purple) !important; /* FORCED PURPLE */
+    background-color: var(--bg-purple) !important;
     color: var(--text-white);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
-    width: 100vw;
+    width: 100%;
 }
 
-/* --- CLEAN NAVIGATION --- */
+/* --- NAVIGATION --- */
 .glass-nav {
     position: fixed; top: 0; left: 0; width: 100%; padding: 20px 5%;
     display: flex; justify-content: space-between; align-items: center;
@@ -32,7 +32,7 @@ body {
     border-bottom: 1px solid var(--glass-border); 
     z-index: 9999;
 }
-.nav-brand { font-weight: 900; color: var(--accent-pink); text-decoration: none; }
+.nav-brand { font-weight: 900; color: var(--accent-pink); text-decoration: none; font-size: 1.2rem; }
 
 /* --- BULLPULPROOF CENTERING --- */
 section {
@@ -43,58 +43,78 @@ section {
     align-items: center; /* Horizontally Center */
     justify-content: center; /* Vertically Center */
     padding: 120px 5% 80px 5%;
-    text-align: center;
+    text-align: center; /* Center all text globally */
 }
 
-/* --- HERO RESTORED --- */
+/* --- HERO SECTION --- */
 .hero {
     background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-purple) 100%);
 }
-.hero-content { max-width: 900px; width: 100%; margin: 0 auto; }
-.hero h1 { color: var(--accent-pink); font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
-.hero-tagline { font-weight: 900; color: #fff; font-size: 1.1rem; margin-bottom: 40px; }
+.hero-content { 
+    max-width: 1000px; 
+    width: 100%; 
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hero h1 { color: var(--accent-pink); font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 25px; }
+.hero-tagline { font-weight: 800; color: #fff; font-size: 1.2rem; margin-bottom: 45px; text-transform: uppercase; letter-spacing: 1px; }
 
-/* --- ROI CALCULATOR FIX --- */
+/* --- BUTTONS --- */
+.btn-primary {
+    display: inline-block; 
+    background: linear-gradient(90deg, var(--accent-pink), #ff5e62);
+    color: white; 
+    padding: 22px 55px; 
+    text-decoration: none; 
+    font-weight: 900;
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    border-radius: 12px; 
+    transition: 0.4s;
+    border: none;
+    box-shadow: 0 10px 30px rgba(255, 0, 127, 0.3);
+    cursor: pointer;
+}
+.btn-primary:hover { transform: scale(1.05) translateY(-5px); box-shadow: 0 0 40px var(--accent-pink); }
+
+/* --- ROI CALCULATOR --- */
 .roi-outer-container { width: 100%; max-width: 1100px; }
 .sultan-glass {
     background: rgba(255, 255, 255, 0.03) !important;
     border: 1px solid var(--glass-border);
-    border-radius: 30px; padding: 60px 40px;
+    border-radius: 40px; padding: 60px 40px;
 }
 .audit-main-grid { 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-    gap: 40px; 
+    gap: 50px; 
     width: 100%;
 }
-.panel { text-align: left; background: rgba(0,0,0,0.3); padding: 35px; border-radius: 20px; border: 1px solid var(--glass-border); }
+.panel { text-align: left; background: rgba(0,0,0,0.4); padding: 40px; border-radius: 25px; border: 1px solid var(--glass-border); }
 
-/* FORCED WHITE LABELS */
-label { color: #ffffff !important; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 10px; display: block; }
-input { width: 100%; padding: 18px; background: rgba(255,255,255,0.05) !important; border: 1px solid var(--glass-border) !important; color: white !important; border-radius: 12px; margin-bottom: 20px; }
+/* FORCED WHITE LABELS & INPUTS */
+label { color: #ffffff !important; font-weight: 800; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 12px; display: block; }
+input { width: 100%; padding: 18px; background: rgba(255,255,255,0.05) !important; border: 1px solid var(--glass-border) !important; color: white !important; border-radius: 12px; margin-bottom: 25px; font-size: 1rem; }
 
-/* --- PORTFOLIO (FIXED HORIZONTAL) --- */
+/* --- PORTFOLIO (FIXED 3-COLUMN) --- */
 .arsenal-grid { 
     display: grid; 
     grid-template-columns: repeat(3, 1fr); 
     gap: 30px; 
     width: 100%;
-    margin-top: 50px;
+    max-width: 1200px;
+    margin-top: 60px;
 }
-@media (max-width: 1024px) { .arsenal-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1100px) { .arsenal-grid { grid-template-columns: 1fr; } }
 
 .glass-card { 
     background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); 
-    padding: 30px; border-radius: 20px; transition: 0.4s;
+    padding: 30px; border-radius: 25px; transition: 0.5s; text-align: left;
 }
-.glass-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(255, 0, 127, 0.4); }
+.glass-card:hover { transform: translateY(-15px); box-shadow: 0 20px 50px rgba(255, 0, 127, 0.4); border-color: var(--accent-pink); }
+.card-img { width: 100%; height: 220px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; }
 
 /* --- CONTACT FORM --- */
-.glass-form { max-width: 600px; width: 100%; background: rgba(255,255,255,0.03); padding: 50px; border-radius: 30px; border: 1px solid var(--glass-border); text-align: left; }
-
-.btn-primary, .scan-btn {
-    display: inline-block; width: 100%; padding: 22px; background: linear-gradient(90deg, var(--accent-pink), #ff5e62);
-    color: white; font-weight: 900; text-transform: uppercase; border-radius: 12px; border: none; cursor: pointer;
-    transition: 0.4s; box-shadow: 0 10px 20px rgba(255, 0, 127, 0.2);
-}
-.btn-primary:hover { transform: scale(1.02); box-shadow: 0 0 30px var(--accent-pink); }
+.glass-form { max-width: 650px; width: 100%; background: rgba(255,255,255,0.03); padding: 60px; border-radius: 30px; border: 1px solid var(--glass-border); text-align: left; }
