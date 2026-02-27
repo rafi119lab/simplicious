@@ -28,3 +28,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function runAudit() {
+    const traffic = parseFloat(document.getElementById('traffic').value) || 0;
+    const value = parseFloat(document.getElementById('saleValue').value) || 0;
+    const currentConv = (parseFloat(document.getElementById('convRate').value) || 0) / 100;
+    
+    // Simplicious Standard: We target a 3% conversion floor for performance builds
+    const targetConv = 0.03; 
+    
+    const currentRev = traffic * currentConv * value;
+    const projectedRev = traffic * targetConv * value;
+    const monthlyLeak = projectedRev - currentRev;
+    const annualLeak = monthlyLeak * 12;
+
+    const resultDiv = document.getElementById('auditResult');
+    
+    if (annualLeak <= 0) {
+        resultDiv.innerHTML = `<span style="color: #00ff88;">YOUR SYSTEMS ARE OPTIMIZED.</span>`;
+    } else {
+        resultDiv.innerHTML = `
+            <div style="font-size: 0.8rem; opacity: 0.5; font-family: 'Space Mono';">ANNUAL REVENUE LEAK DETECTED</div>
+            <div style="color: #ff007f;">$${annualLeak.toLocaleString()}</div>
+            <div style="font-size: 0.7rem; margin-top: 10px; opacity: 0.5;">RECOVERABLE THROUGH HIGH-PERFORMANCE INFRASTRUCTURE</div>
+        `;
+    }
+}
