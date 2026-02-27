@@ -30,32 +30,39 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function runAudit() {
-    const traffic = parseFloat(document.getElementById('traffic').value) || 2000;
-    const value = parseFloat(document.getElementById('saleValue').value) || 500;
-    const currentConv = (parseFloat(document.getElementById('convRate').value) || 1.0) / 100;
+    // Capture Inputs
+    const traffic = parseFloat(document.getElementById('traffic').value) || 0;
+    const value = parseFloat(document.getElementById('saleValue').value) || 0;
+    const currentConv = (parseFloat(document.getElementById('convRate').value) || 0) / 100;
     
-    const targetConv = 0.035; // 3.5% Simplicious Benchmark
+    // Simplicious Benchmark: 3% is the floor for performance builds
+    const targetConv = 0.03; 
+    
     const currentRev = traffic * currentConv * value;
     const projectedRev = traffic * targetConv * value;
-    const monthlyLift = projectedRev - currentRev;
+    const annualLeak = (projectedRev - currentRev) * 12;
 
     const resultDiv = document.getElementById('auditResult');
     
-    // Clear and Reveal
+    // Visual Feedback: Resetting the state for the "Thinking" feel
     resultDiv.style.opacity = "0";
+    resultDiv.style.transition = "opacity 0.3s ease";
     
     setTimeout(() => {
-        resultDiv.innerHTML = `
-            <div class="result-animate" style="text-align: center;">
-                <p style="color: var(--accent-pink); font-family: 'Space Mono'; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;">Projected Revenue Lift</p>
-                <h2 style="font-size: 4rem; font-weight: 900; margin: 10px 0; color: #fff;">+$${Math.floor(monthlyLift).toLocaleString()}</h2>
-                <div style="width: 40px; height: 2px; background: var(--accent-pink); margin: 20px auto;"></div>
-                <p style="font-size: 0.9rem; opacity: 0.7; max-width: 320px; margin: 0 auto;">
-                    Monthly margin recovered through infrastructure optimization.
-                </p>
-                <a href="#contact" class="scan-btn" style="display: inline-block; width: auto; padding: 12px 30px; margin-top: 25px; font-size: 0.8rem; text-decoration: none;">Secure This Growth</a>
-            </div>
-        `;
+        if (annualLeak <= 0) {
+            resultDiv.innerHTML = `
+                <div style="font-family: 'Space Mono'; color: #00ff88; font-size: 0.8rem; letter-spacing: 2px;">SYSTEM STATUS: OPTIMIZED</div>
+                <div style="font-family: 'Inter'; font-weight: 900; font-size: 1.5rem; margin-top: 15px;">NO LEAKS DETECTED</div>
+                <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 10px;">Your infrastructure meets Simplicious Performance Standards.</p>
+            `;
+        } else {
+            resultDiv.innerHTML = `
+                <div style="font-size: 0.7rem; opacity: 0.5; font-family: 'Space Mono'; letter-spacing: 1px;">ANNUAL REVENUE LEAK DETECTED</div>
+                <div style="color: #ff007f; font-family: 'Inter'; font-weight: 900; font-size: 2.8rem; margin: 15px 0; text-shadow: 0 0 20px rgba(255, 0, 127, 0.3);">$${Math.floor(annualLeak).toLocaleString()}</div>
+                <div style="font-size: 0.7rem; opacity: 0.5; font-family: 'Space Mono'; margin-bottom: 20px;">RECOVERABLE THROUGH HIGH-PERFORMANCE INFRASTRUCTURE</div>
+                <a href="#contact" class="btn-primary" style="display: inline-block; padding: 12px 25px; font-size: 0.8rem; text-decoration: none; border-radius: 5px; background: linear-gradient(90deg, #7000ff, #ff007f);">PLUG THE LEAK</a>
+            `;
+        }
         resultDiv.style.opacity = "1";
-    }, 300);
+    }, 400); // 400ms delay to make it feel like an "Analysis" is happening
 }
