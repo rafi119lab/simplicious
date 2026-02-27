@@ -5,6 +5,7 @@
     --text-white: #ffffff;
     --text-dim: rgba(255, 255, 255, 0.6);
     --glass-border: rgba(255, 0, 127, 0.3);
+    --glass-bg: rgba(255, 255, 255, 0.03);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; cursor: auto !important; }
@@ -17,6 +18,7 @@ body {
     text-align: center;
 }
 
+/* --- NAVIGATION --- */
 .glass-nav {
     position: fixed; top: 0; width: 100%; padding: 20px 5%;
     display: flex; justify-content: space-between; align-items: center;
@@ -25,8 +27,8 @@ body {
 }
 
 .nav-brand { font-weight: 900; letter-spacing: 2px; color: var(--accent-pink); }
-.nav-status { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--text-dim); }
 
+/* --- HERO SECTION --- */
 .hero {
     height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
     background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-purple) 100%);
@@ -43,74 +45,12 @@ body {
     margin-top: 30px; display: inline-block; background: var(--accent-pink); color: white;
     padding: 20px 50px; text-decoration: none; font-weight: 900;
     text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; transition: 0.4s;
+    border: none; cursor: pointer;
 }
 
 .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--accent-pink); }
 
-/* Portfolio Header Updates */
-.arsenal-container { padding: 120px 5%; background-color: var(--bg-purple); }
-
-.portfolio-header {
-    font-size: clamp(3rem, 10vw, 6rem);
-    font-weight: 900;
-    color: var(--accent-pink);
-    letter-spacing: -2px;
-    margin-bottom: 60px;
-    text-transform: uppercase;
-    
-    /* White secondary layer + Neon Glow */
-    text-shadow: 
-        -1px -1px 0 #fff,  
-         1px -1px 0 #fff,
-        -1px  1px 0 #fff,
-         1px  1px 0 #fff,             /* These create the white "outer layer" */
-         0 0 10px #fff,               /* Soft white inner glow */
-         0 0 20px var(--accent-pink), /* Strong pink glow */
-         0 0 40px var(--accent-pink); /* Wide spread pink glow */
-}
-
-.arsenal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-
-.glass-card { 
-    position: relative; overflow: hidden;
-    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); 
-    padding: 25px; border-radius: 12px; transition: 0.4s ease; text-align: left;
-}
-
-.glass-card:hover { transform: translateY(-10px); border-color: var(--accent-pink); }
-
-.glass-card::before {
-    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 0, 127, 0.1), transparent 40%);
-    z-index: 0; pointer-events: none;
-}
-
-.glass-card > * { position: relative; z-index: 1; }
-
-.card-img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; background-color: #111; }
-
-.contact-container { padding: 100px 5%; background-color: var(--bg-purple); }
-.contact-wrapper { max-width: 600px; margin: 0 auto; }
-.glass-form { background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); padding: 40px; border-radius: 12px; }
-.form-group { text-align: left; margin-bottom: 20px; }
-.form-group label { color: white; font-family: 'Space Mono', monospace; display: block; margin-bottom: 10px; }
-.form-group input, .form-group textarea {
-    width: 100%; padding: 15px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); color: white;
-}
-
-.full-width { width: 100%; }
-
-.telemetry-footer { padding: 40px 5%; display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 10px; opacity: 0.5; border-top: 1px solid var(--glass-border); }
-
-
-/* --- REVENUE AUDIT STYLING --- */
-
-:root {
-    --accent-purple: #7000ff;
-    --accent-pink: #ff007f;
-    --glass-bg: rgba(255, 255, 255, 0.03);
-}
-
+/* --- ROI CALCULATOR --- */
 .roi-outer-container {
     max-width: 1100px;
     margin: 80px auto;
@@ -118,124 +58,100 @@ body {
 }
 
 .sultan-glass {
-    background: rgba(10, 10, 10, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 40px;
+    background: #000000;
+    border: 2px solid var(--accent-pink); /* Uniform pink border all around */
+    border-radius: 20px;
     padding: 60px 40px;
     position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
-
-/* The Glowing Background Orbs */
-.glow-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    z-index: 0;
-    pointer-events: none;
-}
-.orb-1 { width: 300px; height: 300px; background: rgba(112, 0, 255, 0.15); top: -100px; right: -50px; }
-.orb-2 { width: 250px; height: 250px; background: rgba(255, 0, 127, 0.1); bottom: -80px; left: -50px; }
-
-/* Dashboard Panels */
-.panel {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 24px;
-    transition: transform 0.3s ease, border 0.3s ease;
-}
-
-.input-panel {
-    border-left: 4px solid var(--accent-purple);
-}
-
-.result-panel {
-    border: 1px solid rgba(255, 0, 127, 0.3);
-    background: radial-gradient(circle at top right, rgba(255, 0, 127, 0.05), transparent);
-}
-
-/* Input Fields */
-.input-field input {
-    width: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    color: #fff;
-    border-radius: 12px;
-    font-family: 'Space Mono', monospace;
-    margin-top: 5px;
-    transition: border 0.3s ease;
-}
-
-.input-field input:focus {
-    outline: none;
-    border-color: var(--accent-purple);
-    background: rgba(0, 0, 0, 0.5);
-}
-
-/* Button Mogging */
-.scan-btn {
-    background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink));
-    box-shadow: 0 4px 15px rgba(112, 0, 255, 0.3);
-    border: none;
-    border-radius: 12px;
-    color: white;
-    font-weight: 900;
-    cursor: pointer;
-    transition: 0.3s all;
-}
-
-.scan-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 0, 127, 0.4);
-}
-
-/* Add this to your existing Revenue Audit section */
-.audit-main-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    position: relative;
-    z-index: 1;
-}
-
-.audit-header {
-    text-align: center;
-    margin-bottom: 40px;
+    box-shadow: 0 0 40px rgba(255, 0, 127, 0.15);
 }
 
 .audit-title {
     font-weight: 900;
-    font-size: 3rem;
-    margin-bottom: 0;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
     color: var(--text-white);
+    text-transform: uppercase;
 }
 
-.audit-subtitle {
-    font-family: 'Space Mono', monospace;
-    color: var(--accent-pink);
-    letter-spacing: 2px;
+.audit-main-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
 }
 
-.panel-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.8rem;
-    opacity: 0.5;
-    margin-bottom: 20px;
-    text-align: left;
+.panel {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .input-field {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-align: left;
 }
 
 .input-field label {
     display: block;
     font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     margin-bottom: 8px;
     color: var(--text-dim);
 }
+
+.input-field input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    padding: 15px;
+    color: #fff;
+    border-radius: 8px;
+    font-family: 'Space Mono', monospace;
+}
+
+.scan-btn {
+    width: 100%;
+    padding: 20px;
+    background: var(--accent-pink);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 900;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.scan-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 0, 127, 0.3);
+}
+
+#auditResult {
+    min-height: 300px;
+    text-align: center;
+    align-items: center;
+}
+
+/* --- PORTFOLIO & CONTACT (KEEPING YOUR STYLES) --- */
+.arsenal-container { padding: 120px 5%; background-color: var(--bg-purple); }
+.portfolio-header {
+    font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; color: var(--accent-pink);
+    letter-spacing: -2px; margin-bottom: 60px; text-transform: uppercase;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 0 20px var(--accent-pink);
+}
+.arsenal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+.glass-card { 
+    position: relative; overflow: hidden; background: rgba(255, 255, 255, 0.03); 
+    border: 1px solid var(--glass-border); padding: 25px; border-radius: 12px; transition: 0.4s ease; text-align: left;
+}
+.glass-card:hover { transform: translateY(-10px); border-color: var(--accent-pink); }
+.card-img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; background-color: #111; }
+.contact-container { padding: 100px 5%; background-color: var(--bg-purple); }
+.glass-form { background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); padding: 40px; border-radius: 12px; }
+.telemetry-footer { padding: 40px 5%; display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 10px; opacity: 0.5; border-top: 1px solid var(--glass-border); }
