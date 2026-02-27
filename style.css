@@ -102,114 +102,61 @@ body {
 
 #auditResult { min-height: 300px; text-align: center; align-items: center; }
 
-/* --- PORTFOLIO --- */
-.arsenal-container { padding: 120px 5%; background-color: var(--bg-purple); }
-.portfolio-header {
-    font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; color: var(--accent-pink);
-    letter-spacing: -2px; margin-bottom: 60px; text-transform: uppercase;
-    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 0 20px var(--accent-pink);
-}
-.arsenal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-.glass-card { 
-    position: relative; overflow: hidden; background: rgba(255, 255, 255, 0.03); 
-    border: 1px solid var(--glass-border); padding: 25px; border-radius: 12px; transition: 0.4s ease; text-align: left;
-}
-.glass-card:hover { transform: translateY(-10px); border-color: var(--accent-pink); }
-.card-img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; background-color: #111; }
-
-/* --- CONTACT FORM (MODERNIZED & WIDENED) --- */
+/* --- CONTACT SECTION: MAXIMIZED & BLEAK --- */
 .contact-container { 
     padding: 120px 5%; 
     background-color: var(--bg-purple); 
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 100%; /* Ensures section fills screen */
 }
 
-/* BIG & BLEAK HEADER - MATCHES PORTFOLIO */
+/* THE PORTFOLIO CLONE: BIG, OUTLINED, BLEAK */
 .contact-header {
-    font-size: clamp(3rem, 10vw, 6rem); 
+    font-size: clamp(3.5rem, 12vw, 7rem) !important; /* Increased size to match Portfolio */
     font-weight: 900; 
     color: var(--accent-pink);
-    letter-spacing: -2px; 
-    margin-bottom: 60px; 
+    letter-spacing: -3px; 
+    margin-bottom: 80px; 
     text-transform: uppercase;
-    /* The "Bleak" White Outline + Glow */
-    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 0 20px var(--accent-pink);
+    /* EXACT PORTFOLIO REPLICA: White outline + Pink Glow */
+    text-shadow: 
+        -2px -2px 0 #fff, 
+         2px -2px 0 #fff, 
+        -2px  2px 0 #fff, 
+         2px  2px 0 #fff, 
+         0 0 30px var(--accent-pink);
 }
 
 .glass-form { 
-    background: rgba(0, 0, 0, 0.4); 
-    border: 1px solid var(--glass-border); 
-    padding: 80px 60px; 
-    border-radius: 20px; 
-    max-width: 1100px; /* INCREASED WIDTH */
-    width: 100%;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.6) !important; /* Darker, more industrial */
+    border: 2px solid var(--glass-border); 
+    padding: 100px 80px; /* Massive internal spacing */
+    border-radius: 0px; /* Bleak, sharp edges look more 'infrastructure' */
+    max-width: 1400px !important; /* FORCED WIDE - Commands the whole screen */
+    width: 95%; 
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+    margin: 0 auto;
 }
 
-/* Internal Grid for wider layout */
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-
-.form-group.full-width {
-    grid-column: span 2;
-}
-
-@media (max-width: 768px) {
-    .form-grid { grid-template-columns: 1fr; }
-    .form-group.full-width { grid-column: span 1; }
-}
-
-.form-group {
-    margin-bottom: 25px;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
+/* Label Styling - Industrial Mono */
+.glass-form label {
     font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
     color: var(--accent-pink);
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    font-weight: bold;
+    text-align: left;
+    display: block;
+    margin-bottom: 15px;
 }
 
-.form-group input, 
-.form-group textarea {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--glass-border);
-    padding: 18px;
-    color: white;
-    border-radius: 8px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    transition: 0.3s;
-}
-
-.form-group input:focus, 
-.form-group textarea:focus {
-    border-color: var(--accent-pink);
-    outline: none;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 15px rgba(255, 0, 127, 0.2);
-}
-
-/* --- TELEMETRY FOOTER (BLACKOUT) --- */
-.telemetry-footer { 
-    padding: 60px 5%; 
-    display: flex; 
-    justify-content: space-between; 
-    font-family: 'Space Mono', monospace; 
-    font-size: 12px; 
-    background-color: #000000; /* PURE BLACK */
-    color: rgba(255, 255, 255, 0.5);
-    border-top: 1px solid var(--glass-border); 
-    width: 100%;
+/* Massive Inputs */
+.glass-form input, 
+.glass-form textarea {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 25px !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 40px !important;
 }
