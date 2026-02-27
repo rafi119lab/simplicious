@@ -1,16 +1,30 @@
-function runAudit() {
-    const traffic = parseFloat(document.getElementById('traffic').value) || 0;
-    const value = parseFloat(document.getElementById('saleValue').value) || 0;
-    const currentConv = (parseFloat(document.getElementById('convRate').value) || 0) / 100;
-    const targetConv = 0.03; 
-    
-    const currentRev = traffic * currentConv * value;
-    const projectedRev = traffic * targetConv * value;
-    const annualLeak = (projectedRev - currentRev) * 12;
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("SIMPLICIOUS // SYSTEM OPERATIONAL");
 
-    const resultDiv = document.getElementById('auditResult');
-    resultDiv.innerHTML = `
-        <div style="color: #ff007f; font-weight: 900; font-size: 2.5rem;">$${Math.floor(annualLeak).toLocaleString()}</div>
-        <div style="font-family: 'Space Mono'; font-size: 0.7rem; opacity: 0.6;">ANNUAL REVENUE LEAK DETECTED</div>
-    `;
-}
+    // 1. Reveal on Scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.glass-card, .hero-content, .glass-form, .portfolio-header').forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "all 0.8s ease-out";
+        observer.observe(el);
+    });
+
+    // 2. Card Spotlight
+    const cards = document.querySelectorAll('.glass-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+            card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        });
+    });
+});
