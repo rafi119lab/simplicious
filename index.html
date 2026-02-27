@@ -38,6 +38,31 @@
         </header>
 
         <section class="arsenal-container">
+            <section class="roi-container glass-card" style="margin: 40px 20px; padding: 60px 20px; text-align: center;">
+    <div class="section-label" style="color: var(--accent-pink); margin-bottom: 20px;">DIAGNOSTIC</div>
+    <h2 style="font-family: 'Inter', sans-serif; font-weight: 900; font-size: 2.5rem; margin-bottom: 10px;">REVENUE LEAK AUDITOR</h2>
+    <p style="font-family: 'Space Mono', monospace; opacity: 0.7; margin-bottom: 40px;">CALCULATE THE COST OF YOUR CURRENT PERFORMANCE BOTTLENECKS.</p>
+
+    <div class="audit-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
+        <div class="form-group">
+            <label style="display: block; text-align: left; font-family: 'Space Mono'; font-size: 0.7rem; margin-bottom: 10px;">MONTHLY TRAFFIC</label>
+            <input type="number" id="traffic" placeholder="5000" style="width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white;">
+        </div>
+        <div class="form-group">
+            <label style="display: block; text-align: left; font-family: 'Space Mono'; font-size: 0.7rem; margin-bottom: 10px;">AVG TICKET VALUE ($)</label>
+            <input type="number" id="saleValue" placeholder="1000" style="width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white;">
+        </div>
+        <div class="form-group">
+            <label style="display: block; text-align: left; font-family: 'Space Mono'; font-size: 0.7rem; margin-bottom: 10px;">CURRENT CONV. RATE (%)</label>
+            <input type="number" id="convRate" placeholder="1.0" style="width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white;">
+        </div>
+    </div>
+
+    <button onclick="runAudit()" class="btn-primary" style="margin-top: 40px; cursor: pointer;">RUN ANALYSIS</button>
+
+    <div id="auditResult" style="margin-top: 40px; font-family: 'Inter'; font-weight: 900; font-size: 1.8rem;">
+        </div>
+</section>
             <h2 class="portfolio-header">PORTFOLIO</h2>
             <div class="arsenal-grid">
                 <div class="glass-card">
@@ -96,5 +121,6 @@
     <script src="main.js"></script>
 </body>
 </html>
+
 
 
