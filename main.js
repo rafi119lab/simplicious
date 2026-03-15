@@ -28,3 +28,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+
+// Add this inside your DOMContentLoaded listener
+const calcBtn = document.getElementById('calcBtn');
+const leakDisplay = document.getElementById('leakAmount');
+
+if (calcBtn) {
+    calcBtn.addEventListener('click', () => {
+        const v = parseFloat(document.getElementById('visitors').value) || 0;
+        const s = parseFloat(document.getElementById('saleValue').value) || 0;
+        const c = parseFloat(document.getElementById('convRate').value) || 0;
+
+        // Formula: Calculated loss assuming a 0.5% performance optimization gain
+        // (Monthly Visitors * Sale Value * 0.005 improvement) * 12 months
+        const annualLeak = (v * s * 0.005) * 12;
+
+        // Animate the number
+        let start = 0;
+        const duration = 1000;
+        const startTime = performance.now();
+
+        function updateNumber(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const current = Math.floor(progress * annualLeak);
+            
+            leakDisplay.textContent = `$${current.toLocaleString()}`;
+
+            if (progress < 1) {
+                requestAnimationFrame(updateNumber);
+            }
+        }
+        requestAnimationFrame(updateNumber);
+    });
+}
