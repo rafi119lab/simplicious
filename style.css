@@ -43,34 +43,57 @@ body {
 }
 .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--accent-pink); }
 
-/* ROI CALCULATOR SECTION */
+/* ROI CALCULATOR SECTION - FIXED BACKGROUND FLOW */
 .roi-container {
-    padding: 100px 5%;
+    padding: 120px 5%;
+    /* Gradient starts with Hero's bottom color and fades to Black */
     background: linear-gradient(180deg, var(--bg-purple) 0%, var(--bg-primary) 100%);
     display: flex; justify-content: center;
+    position: relative;
+    z-index: 1;
 }
-.roi-wrapper { max-width: 900px; width: 100%; padding: 50px !important; }
+
+.roi-wrapper { 
+    max-width: 900px; 
+    width: 100%; 
+    padding: 60px !important; 
+    /* Semi-transparent to let the background gradient show through */
+    background: rgba(255, 255, 255, 0.02) !important;
+    backdrop-filter: blur(10px);
+}
+
 .roi-title { font-size: 1.8rem; font-weight: 900; margin-bottom: 40px; letter-spacing: 2px; color: var(--accent-pink); }
 .roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
 .roi-inputs { text-align: left; }
 .roi-inputs input {
-    width: 100%; padding: 15px; background: rgba(0, 0, 0, 0.4); 
+    width: 100%; padding: 15px; background: rgba(0, 0, 0, 0.6); 
     border: 1px solid var(--glass-border); color: var(--accent-pink);
     font-family: 'Space Mono', monospace; border-radius: 4px; margin-top: 10px;
+    transition: 0.3s ease;
 }
+.roi-inputs input:focus { outline: none; border-color: var(--accent-pink); background: rgba(255, 0, 127, 0.05); }
+
 .roi-result { border-left: 1px solid var(--glass-border); padding-left: 50px; }
 .leak-label { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--text-dim); }
 .leak-amount { font-size: 4rem; font-weight: 900; color: var(--accent-pink); margin: 20px 0; text-shadow: 0 0 20px var(--accent-pink); }
 .leak-subtext { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--text-dim); margin-bottom: 30px; }
 .leak-btn { padding: 15px 30px !important; font-size: 0.8rem !important; background: linear-gradient(90deg, #6200ff, var(--accent-pink)); }
 
-/* PORTFOLIO */
-.arsenal-container { padding: 120px 5%; background-color: var(--bg-primary); }
+/* PORTFOLIO - FIXED SPACING AND TRANSITION */
+.arsenal-container { 
+    padding: 160px 5% 120px 5%; 
+    background-color: var(--bg-primary); 
+    position: relative;
+}
+
 .portfolio-header {
     font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; color: var(--accent-pink);
-    letter-spacing: -2px; margin-bottom: 60px; text-transform: uppercase;
+    letter-spacing: -2px; margin-bottom: 80px; text-transform: uppercase;
     text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 0 10px #fff, 0 0 20px var(--accent-pink);
+    position: relative;
+    z-index: 2;
 }
+
 .arsenal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
 
 /* GLASS CARDS */
