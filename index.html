@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo.png">
     <title>Simplicious | High-Performance Web Infrastructure</title>
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://simplicious.dev/">
+    <meta property="og:title" content="Simplicious | Pure Performance. Zero Waste.">
+    <meta property="og:description" content="Stop losing leads to lag. We build zero-bloat, high-performance systems for founders who play for high stakes.">
+    <meta property="og:image" content="https://simplicious.dev/preview.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -37,7 +45,7 @@
                             <input type="number" id="saleValue" value="100">
                         </div>
                         <div class="form-group">
-                            <label>CURRENT CONVERSION RATE (%)</label>
+                            <label>CONVERSION RATE (%)</label>
                             <input type="number" id="convRate" value="1" step="0.1">
                         </div>
                         <button id="calcBtn" class="btn-primary full-width">CALCULATE REVENUE</button>
@@ -57,17 +65,22 @@
             <h2 class="portfolio-header">PORTFOLIO</h2>
             <div class="arsenal-grid">
                 <div class="glass-card">
-                    <img src="https://t3.ftcdn.net/jpg/04/27/47/64/360_F_427476485_oTb1JxGzFAc5MnVb6KoCoZYTgCNm6fSk.jpg" alt="Landscaping" class="card-img">
+                    <img src="https://t3.ftcdn.net/jpg/04/27/47/64/360_F_427476485_oTb1JxGzFAc5MnVb6KoCoZYTgCNm6fSk.jpg" alt="Luxury Landscaping" class="card-img">
+                    <span class="status-badge">Demo Site</span>
                     <h3>THE LANDSCAPER</h3>
                     <p>Minimalist showcase for exterior architecture and luxury design.</p>
                 </div>
+
                 <div class="glass-card">
                     <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80" alt="Barber" class="card-img">
+                    <span class="status-badge">Demo Site</span>
                     <h3>THE BARBER</h3>
                     <p>Sleek booking interface and aesthetic brand gallery.</p>
                 </div>
+
                 <div class="glass-card">
                     <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=600&q=80" alt="Plumber" class="card-img">
+                    <span class="status-badge">Demo Site</span>
                     <h3>THE PLUMBER</h3>
                     <p>Emergency-ready UI designed for local service conversion.</p>
                 </div>
@@ -75,6 +88,7 @@
         </section>
 
         <section id="contact" class="contact-container">
+            <div class="section-label">CONTACT</div>
             <div class="contact-wrapper">
                 <form action="https://formspree.io/f/mpqjjjak" method="POST" class="glass-form">
                     <div class="form-group">
@@ -97,7 +111,7 @@
 
     <footer class="telemetry-footer">
         <div>©2026 SIMPLICIOUS.DEV</div>
-        <div>PRIVACY: NO TRACKING. NO BLOAT.</div>
+        <div style="opacity: 0.5; font-size: 0.7rem;">PRIVACY: NO TRACKING. NO BLOAT.</div>
         <div>CONNECTICUT // GLOBAL</div>
     </footer>
 
