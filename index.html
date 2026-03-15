@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simplicious | High-Performance Web Infrastructure</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=Space+Mono&display=swap" rel="stylesheet">
+    <title>Simplicious | High-Performance Infrastructure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,16 +14,16 @@
         <div class="nav-status">SYSTEM OPERATIONAL</div>
     </nav>
 
-    <div class="main-content-wrapper">
-        <header class="hero">
-            <div class="hero-content">
-                <h1>High-Performance <br>Web Infrastructure.</h1>
-                <p class="hero-tagline">ZERO BLOAT. PURE PRECISION. <br>HIGH-SPEED SYSTEMS FOR THE HIGH-STAKES FOUNDER.</p>
-                <a href="#contact" class="btn-primary">Request Your Site</a>
-            </div>
-        </header>
+    <header class="hero">
+        <div class="limit-width">
+            <h1>High-Performance <br>Web Infrastructure.</h1>
+            <p class="hero-tagline">ZERO BLOAT. PURE PRECISION. <br>HIGH-SPEED SYSTEMS FOR THE HIGH-STAKES FOUNDER.</p>
+            <a href="#contact" class="btn-primary">Request Your Site</a>
+        </div>
+    </header>
 
-        <section class="section-container">
+    <section class="page-section">
+        <div class="limit-width">
             <div class="roi-wrapper glass-card">
                 <h2 class="roi-title">RETURN ON INVESTMENT CALCULATOR</h2>
                 <div class="roi-grid">
@@ -42,7 +42,6 @@
                         </div>
                         <button id="calcBtn" class="btn-primary full-width">CALCULATE REVENUE</button>
                     </div>
-
                     <div class="roi-result">
                         <p class="leak-label">ANNUAL REVENUE LEAK DETECTED</p>
                         <div class="leak-amount" id="leakAmount">$0</div>
@@ -51,38 +50,42 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section-container">
+    <section class="page-section">
+        <div class="limit-width">
             <h2 class="neon-header">PORTFOLIO</h2>
             <div class="arsenal-grid">
                 <div class="glass-card">
-                    <img src="https://t3.ftcdn.net/jpg/04/27/47/64/360_F_427476485_oTb1JxGzFAc5MnVb6KoCoZYTgCNm6fSk.jpg" alt="Landscaping" class="card-img">
-                    <div class="card-text">
+                    <img src="https://t3.ftcdn.net/jpg/04/27/47/64/360_F_427476485_oTb1JxGzFAc5MnVb6KoCoZYTgCNm6fSk.jpg" class="card-img">
+                    <div class="card-content">
                         <h3>THE LANDSCAPER</h3>
                         <p>Minimalist showcase for exterior architecture and luxury design.</p>
                     </div>
                 </div>
                 <div class="glass-card">
-                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80" alt="Barber" class="card-img">
-                    <div class="card-text">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80" class="card-img">
+                    <div class="card-content">
                         <h3>THE BARBER</h3>
                         <p>Sleek booking interface and aesthetic brand gallery.</p>
                     </div>
                 </div>
                 <div class="glass-card">
-                    <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=600&q=80" alt="Plumber" class="card-img">
-                    <div class="card-text">
+                    <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=600&q=80" class="card-img">
+                    <div class="card-content">
                         <h3>THE PLUMBER</h3>
                         <p>Emergency-ready UI designed for local service conversion.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="section-container">
+    <section id="contact" class="page-section">
+        <div class="limit-width">
             <h2 class="neon-header">CONTACT</h2>
-            <div class="contact-wrapper">
+            <div class="form-container">
                 <form action="https://formspree.io/f/mpqjjjak" method="POST" class="glass-form">
                     <div class="form-group">
                         <label>Name</label>
@@ -99,13 +102,15 @@
                     <button type="submit" class="btn-primary full-width">Send Request</button>
                 </form>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer class="telemetry-footer">
+    <footer class="telemetry-footer">
+        <div class="limit-width footer-inner">
             <div>©2026 SIMPLICIOUS.DEV</div>
             <div>CONNECTICUT // GLOBAL</div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
     <script src="main.js"></script>
 </body>
