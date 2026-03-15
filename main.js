@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // 2. Card Spotlight
+    // 2. Card Spotlight Effect
     const cards = document.querySelectorAll('.glass-card');
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
@@ -27,40 +27,38 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
         });
     });
-});
 
+    // 3. ROI Calculator Logic
+    const calcBtn = document.getElementById('calcBtn');
+    const leakDisplay = document.getElementById('leakAmount');
 
+    if (calcBtn) {
+        calcBtn.addEventListener('click', () => {
+            const v = parseFloat(document.getElementById('visitors').value) || 0;
+            const s = parseFloat(document.getElementById('saleValue').value) || 0;
+            const c = parseFloat(document.getElementById('convRate').value) || 0;
 
-// Add this inside your DOMContentLoaded listener
-const calcBtn = document.getElementById('calcBtn');
-const leakDisplay = document.getElementById('leakAmount');
+            // Logic: Assume performance infra recovers 1% of revenue lost to lag
+            const annualLeak = (v * s * 0.01) * 12;
 
-if (calcBtn) {
-    calcBtn.addEventListener('click', () => {
-        const v = parseFloat(document.getElementById('visitors').value) || 0;
-        const s = parseFloat(document.getElementById('saleValue').value) || 0;
-        const c = parseFloat(document.getElementById('convRate').value) || 0;
+            // Animate Number
+            let start = 0;
+            const duration = 1500;
+            const startTime = performance.now();
 
-        // Formula: Calculated loss assuming a 0.5% performance optimization gain
-        // (Monthly Visitors * Sale Value * 0.005 improvement) * 12 months
-        const annualLeak = (v * s * 0.005) * 12;
+            function updateNumber(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easedProgress = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(easedProgress * annualLeak);
+                
+                leakDisplay.textContent = `$${current.toLocaleString()}`;
 
-        // Animate the number
-        let start = 0;
-        const duration = 1000;
-        const startTime = performance.now();
-
-        function updateNumber(now) {
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const current = Math.floor(progress * annualLeak);
-            
-            leakDisplay.textContent = `$${current.toLocaleString()}`;
-
-            if (progress < 1) {
-                requestAnimationFrame(updateNumber);
+                if (progress < 1) {
+                    requestAnimationFrame(updateNumber);
+                }
             }
-        }
-        requestAnimationFrame(updateNumber);
-    });
-}
+            requestAnimationFrame(updateNumber);
+        });
+    }
+});
