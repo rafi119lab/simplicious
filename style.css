@@ -11,6 +11,8 @@
 
 body {
     background-color: var(--bg-primary);
+    /* This creates the purple glow at the top that stays fixed while you scroll */
+    background: radial-gradient(circle at 50% 0%, var(--bg-purple) 0%, var(--bg-primary) 70%) no-repeat fixed;
     color: var(--text-white);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
@@ -27,9 +29,13 @@ body {
 .nav-brand { font-weight: 900; letter-spacing: 2px; color: var(--accent-pink); }
 .nav-status { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--text-dim); }
 
+/* Remove individual backgrounds to let the body purple show through */
+.hero, .arsenal-container, .contact-container, .roi-container {
+    background: transparent !important;
+}
+
 .hero {
     height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-purple) 100%);
 }
 
 .hero h1 { color: var(--accent-pink); font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; margin-bottom: 10px; }
@@ -47,8 +53,7 @@ body {
 
 .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--accent-pink); }
 
-/* Portfolio Header Updates */
-.arsenal-container { padding: 120px 5%; background-color: var(--bg-purple); }
+.arsenal-container { padding: 120px 5%; }
 
 .portfolio-header {
     font-size: clamp(3rem, 10vw, 6rem);
@@ -57,16 +62,14 @@ body {
     letter-spacing: -2px;
     margin-bottom: 60px;
     text-transform: uppercase;
-    
-    /* White secondary layer + Neon Glow */
     text-shadow: 
         -1px -1px 0 #fff,  
          1px -1px 0 #fff,
         -1px  1px 0 #fff,
-         1px  1px 0 #fff,             /* These create the white "outer layer" */
-         0 0 10px #fff,               /* Soft white inner glow */
-         0 0 20px var(--accent-pink), /* Strong pink glow */
-         0 0 40px var(--accent-pink); /* Wide spread pink glow */
+         1px  1px 0 #fff,
+         0 0 10px #fff,
+         0 0 20px var(--accent-pink),
+         0 0 40px var(--accent-pink);
 }
 
 .arsenal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
@@ -79,17 +82,9 @@ body {
 
 .glass-card:hover { transform: translateY(-10px); border-color: var(--accent-pink); }
 
-.glass-card::before {
-    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 0, 127, 0.1), transparent 40%);
-    z-index: 0; pointer-events: none;
-}
-
-.glass-card > * { position: relative; z-index: 1; }
-
 .card-img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; background-color: #111; }
 
-.contact-container { padding: 100px 5%; background-color: var(--bg-purple); }
+.contact-container { padding: 100px 5%; }
 .contact-wrapper { max-width: 600px; margin: 0 auto; }
 .glass-form { background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); padding: 40px; border-radius: 12px; }
 .form-group { text-align: left; margin-bottom: 20px; }
@@ -104,7 +99,6 @@ body {
 
 .roi-container {
     padding: 80px 5%;
-    background-color: var(--bg-primary);
     display: flex;
     justify-content: center;
 }
@@ -129,9 +123,7 @@ body {
     align-items: center;
 }
 
-.roi-inputs {
-    text-align: left;
-}
+.roi-inputs { text-align: left; }
 
 .roi-result {
     border-left: 1px solid var(--glass-border);
@@ -142,12 +134,7 @@ body {
     align-items: center;
 }
 
-.leak-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    color: var(--text-dim);
-    letter-spacing: 2px;
-}
+.leak-label { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--text-dim); letter-spacing: 2px; }
 
 .leak-amount {
     font-size: 4rem;
@@ -157,13 +144,7 @@ body {
     text-shadow: 0 0 20px rgba(255, 0, 127, 0.5);
 }
 
-.leak-subtext {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    color: var(--text-dim);
-    max-width: 250px;
-    margin-bottom: 30px;
-}
+.leak-subtext { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--text-dim); max-width: 250px; margin-bottom: 30px; }
 
 .leak-btn {
     padding: 15px 30px !important;
