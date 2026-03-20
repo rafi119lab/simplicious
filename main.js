@@ -34,12 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (calcBtn) {
         calcBtn.addEventListener('click', () => {
-            // Pulling live values from your HTML inputs
-            const v = parseFloat(document.getElementById('visitors').value) || 0; 
-            const s = parseFloat(document.getElementById('saleValue').value) || 0; 
-            const c = parseFloat(document.getElementById('convRate').value) || 0; 
+            // Pulling live values & cleaning inputs
+            const v = Math.abs(parseFloat(document.getElementById('visitors').value)) || 0; 
+            const s = Math.abs(parseFloat(document.getElementById('saleValue').value)) || 0; 
+            const c = Math.abs(parseFloat(document.getElementById('convRate').value)) || 0; 
 
-            // The Logic: Calculate annual leak based on 15% recovery potential
+            // Logic: 15% recovery potential on annual revenue
+            // (Visitors * (Conv Rate / 100)) = Monthly Sales
             const monthlyRevenue = (v * (c / 100)) * s;
             const annualLeak = (monthlyRevenue * 0.15) * 12;
 
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const elapsed = now - startTime;
                 const progress = Math.min(elapsed / duration, 1);
                 
-                // Ease-out cubic for a premium feel
+                // Ease-out cubic
                 const easedProgress = 1 - Math.pow(1 - progress, 3);
                 const current = Math.floor(easedProgress * annualLeak);
                 
@@ -66,4 +67,4 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(updateNumber);
         });
     }
-}); // THE MISSING BRACKETS WERE HERE
+});
