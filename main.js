@@ -34,31 +34,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (calcBtn) {
         calcBtn.addEventListener('click', () => {
-            const v = parseFloat(document.getElementById('visitors').value) || 0; // Monthly Visitors
-            const s = parseFloat(document.getElementById('saleValue').value) || 0; // Avg Sale Value
-            const c = parseFloat(document.getElementById('convRate').value) || 0; // Current Conv %
+            // Pulling live values from your HTML inputs
+            const v = parseFloat(document.getElementById('visitors').value) || 0; 
+            const s = parseFloat(document.getElementById('saleValue').value) || 0; 
+            const c = parseFloat(document.getElementById('convRate').value) || 0; 
 
-            // REAL LOGIC: 
-            // 1. Calculate current monthly revenue: (Visitors * Conversion Rate/100) * Sale Value
+            // The Logic: Calculate annual leak based on 15% recovery potential
             const monthlyRevenue = (v * (c / 100)) * s;
+            const annualLeak = (monthlyRevenue * 0.15) * 12;
 
-            // 2. Calculate "Leak": Industry data shows slow sites lose ~15% of potential revenue.
-            // Simplicious infra recovers that 15% gap.
-            const monthlyLeak = monthlyRevenue * 0.15;
-            const annualLeak = monthlyLeak * 12;
-
-            // Animate Number (Your existing animation logic)
-            let start = 0;
+            // Animation Settings
             const duration = 1500;
             const startTime = performance.now();
 
             function updateNumber(now) {
                 const elapsed = now - startTime;
                 const progress = Math.min(elapsed / duration, 1);
+                
+                // Ease-out cubic for a premium feel
                 const easedProgress = 1 - Math.pow(1 - progress, 3);
                 const current = Math.floor(easedProgress * annualLeak);
                 
-                leakDisplay.textContent = `$${current.toLocaleString()}`;
+                if (leakDisplay) {
+                    leakDisplay.textContent = `$${current.toLocaleString()}`;
+                }
 
                 if (progress < 1) {
                     requestAnimationFrame(updateNumber);
@@ -67,3 +66,4 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(updateNumber);
         });
     }
+}); // THE MISSING BRACKETS WERE HERE
