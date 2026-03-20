@@ -34,14 +34,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (calcBtn) {
         calcBtn.addEventListener('click', () => {
-            const v = parseFloat(document.getElementById('visitors').value) || 0;
-            const s = parseFloat(document.getElementById('saleValue').value) || 0;
-            const c = parseFloat(document.getElementById('convRate').value) || 0;
+            const v = parseFloat(document.getElementById('visitors').value) || 0; // Monthly Visitors
+            const s = parseFloat(document.getElementById('saleValue').value) || 0; // Avg Sale Value
+            const c = parseFloat(document.getElementById('convRate').value) || 0; // Current Conv %
 
-            // Logic: Assume performance infra recovers 1% of revenue lost to lag
-            const annualLeak = (v * s * 0.01) * 12;
+            // REAL LOGIC: 
+            // 1. Calculate current monthly revenue: (Visitors * Conversion Rate/100) * Sale Value
+            const monthlyRevenue = (v * (c / 100)) * s;
 
-            // Animate Number
+            // 2. Calculate "Leak": Industry data shows slow sites lose ~15% of potential revenue.
+            // Simplicious infra recovers that 15% gap.
+            const monthlyLeak = monthlyRevenue * 0.15;
+            const annualLeak = monthlyLeak * 12;
+
+            // Animate Number (Your existing animation logic)
             let start = 0;
             const duration = 1500;
             const startTime = performance.now();
@@ -61,4 +67,3 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(updateNumber);
         });
     }
-});
